@@ -1,0 +1,2 @@
+/* Each monthly view owns its own workspace. This prevents the report editor and temperature sheet from appearing together after an update. */
+#monthly .monthly-sheet.hidden{display:none!important}.document-editor-mode #monthlyTemperature,.document-editor-mode #monthlyWork{display:none!important}.document-editor-mode #monthlyFull{display:block!important}.document-editor-mode #monthlyFull .detailed-editor{margin-bottom:14px!important}@media print{#monthlyFull.hidden{display:none!important}}
