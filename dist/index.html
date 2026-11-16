@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1120" />
+  <title>OPS Report — Bangun Tjipta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="login" class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">OR</div>
+      <p class="eyebrow">BANGUN TJIPTA · INTERNAL</p><h1>OPS Report</h1>
+      <p class="muted">Pusat laporan operasional harian dan bulanan.</p>
+      <label>Email admin<input id="email" type="email" value="admin@banguntjipta.co.id"></label>
+      <label>Kata sandi<input id="password" type="password" value="admin123"></label>
+      <button id="loginBtn" class="primary wide">Masuk ke dashboard</button>
+      <p class="hint">Demo: gunakan kredensial yang sudah terisi. Untuk produksi, aktifkan Cloudflare Access pada Pengaturan.</p>
+    </section>
+  </div>
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="logo"><span class="logo-icon">OR</span><span>OPS<span class="accent">Report</span></span></div>
+      <nav>
+        <button class="nav active" data-page="dashboard"><i>⌂</i>Ringkasan</button>
+        <button class="nav" data-page="attendance"><i>◷</i>Absensi</button>
+        <button class="nav" data-page="work"><i>✓</i>Laporan pekerjaan</button>
+        <button class="nav" data-page="server"><i>◉</i>Suhu server</button>
+        <button class="nav" data-page="reimburse"><i>Rp</i>Reimbursement</button>
+        <button class="nav" data-page="request"><i>□</i>Pengajuan barang</button>
+        <button class="nav" data-page="monthly"><i>▤</i>Laporan bulanan</button>
+      </nav>
+      <div class="side-bottom"><button class="nav" data-page="settings"><i>⚙</i>Pengaturan</button><button class="nav" id="logout"><i>↪</i>Keluar</button></div>
+    </aside>
+    <main>
+      <header><div><p class="eyebrow" id="crumb">OVERVIEW</p><h2 id="pageTitle">Selamat pagi, Rifqi</h2></div><div class="top-actions"><button class="icon-btn" id="printAll" title="Cetak">⎙</button><div class="avatar">RA</div></div></header>
+      <section id="dashboard" class="page active-page">
+        <div class="hero"><div><p>November 2026</p><h3>Operasional terkendali.</h3><span>Semua laporan utama siap ditinjau hari ini.</span></div><button class="light-btn" data-new="work">+ Buat laporan</button></div>
+        <div class="stats"><article><span class="stat-icon blue">◷</span><div><b id="presentNum">18</b><small>Hadir hari ini</small></div><em class="up">↑ 6%</em></article><article><span class="stat-icon orange">✓</span><div><b id="workNum">12</b><small>Pekerjaan selesai</small></div><em class="up">↑ 12%</em></article><article><span class="stat-icon green">◉</span><div><b id="serverNum">24°C</b><small>Suhu server</small></div><em class="ok">Normal</em></article><article><span class="stat-icon purple">Rp</span><div><b id="reimNum">3</b><small>Reimbursement</small></div><em class="wait">Menunggu</em></article></div>
+        <div class="grid-two"><section class="panel"><div class="panel-head"><div><h3>Aktivitas terbaru</h3><p>Laporan operasional hari ini</p></div><button class="text-btn" data-page="work">Lihat semua</button></div><div id="activity" class="activity"></div></section><section class="panel"><div class="panel-head"><div><h3>Status suhu ruang server</h3><p>Pembaruan terakhir 09:15 WIB</p></div><span class="badge good">Normal</span></div><div class="temperature"><div class="ring"><strong>24°</strong><span>Celsius</span></div><div><b>Server room lantai 5</b><p>Kelembaban 48% · Batas aman 18–27°C</p><div class="progress"><span style="width:62%"></span></div></div></div><button class="outline wide" data-page="server">Lihat riwayat suhu</button></section></div>
+      </section>
+      <section id="attendance" class="page report-page" data-module="attendance"><div class="section-title"><div><h3>Absensi harian</h3><p>Impor atau catat kehadiran karyawan</p></div><div><button class="outline import">⇧ Impor Excel/CSV<input type="file" accept=".csv,.xls,.xlsx"></button><button class="primary add">+ Catat absensi</button></div></div><div class="filter"><input placeholder="Cari nama karyawan..." class="search"><select><option>November 2026</option></select></div><div class="table-wrap"><table><thead><tr><th>Nama</th><th>Tanggal</th><th>Masuk</th><th>Pulang</th><th>Status</th></tr></thead><tbody id="attendanceRows"></tbody></table></div></section>
+      <section id="work" class="page report-page" data-module="work"><div class="section-title"><div><h3>Laporan pekerjaan</h3><p>Format mengikuti log pekerjaan bulanan Anda</p></div><button class="primary add">+ Laporan pekerjaan</button></div><div class="filter"><input placeholder="Cari judul / kategori..." class="search"><select><option>Semua kategori</option><option>IP-PBX</option><option>Lain-lain</option></select><select><option>November 2026</option></select></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Kategori</th><th>Judul</th><th>Detail permasalahan</th><th>Solusi</th><th></th></tr></thead><tbody id="workRows"></tbody></table></div></section>
+      <section id="server" class="page report-page" data-module="server"><div class="section-title"><div><h3>Pengecekan suhu server</h3><p>Ruang lantai 5 & R.610 Kaca</p></div><button class="primary add">+ Catat pemeriksaan</button></div><div class="server-cards"><article class="server-card"><div><span class="dot"></span><b>Lantai 5</b><small>Terakhir diperiksa 09:15</small></div><strong>24°C</strong><em>Normal</em></article><article class="server-card"><div><span class="dot"></span><b>R.610 Kaca</b><small>Terakhir diperiksa 09:18</small></div><strong>23°C</strong><em>Normal</em></article></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Ruangan</th><th>Jam</th><th>Suhu</th><th>Kelembaban</th><th>Keterangan</th><th>Paraf</th></tr></thead><tbody id="serverRows"></tbody></table></div></section>
+      <section id="reimburse" class="page report-page" data-module="reimburse"><div class="section-title"><div><h3>Pengajuan reimbursement</h3><p>Kelola tagihan dan persetujuan</p></div><button class="primary add">+ Buat pengajuan</button></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>Tanggal</th><th>Pemohon</th><th>Keterangan</th><th>Total</th><th>Status</th><th></th></tr></thead><tbody id="reimburseRows"></tbody></table></div></section>
+      <section id="request" class="page report-page" data-module="request"><div class="section-title"><div><h3>Pengajuan barang</h3><p>Permintaan kebutuhan operasional</p></div><button class="primary add">+ Ajukan barang</button></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>Tanggal</th><th>Barang</th><th>Jumlah</th><th>Keperluan</th><th>Status</th><th></th></tr></thead><tbody id="requestRows"></tbody></table></div></section>
+      <section id="monthly" class="page report-page"><div class="section-title"><div><h3>Laporan bulanan</h3><p>Rekap dan cetak laporan periode</p></div><button class="primary" id="monthlyPrint">⎙ Cetak laporan</button></div><div class="month-layout"><div class="panel report-summary"><p class="eyebrow">PERIODE LAPORAN</p><h2>November 2026</h2><div class="summary-line"><span>Total absensi</span><b>18 hadir</b></div><div class="summary-line"><span>Tiket/pekerjaan</span><b>12 selesai</b></div><div class="summary-line"><span>Pengecekan server</span><b>20 normal</b></div><div class="summary-line"><span>Reimbursement</span><b>Rp1.108.000</b></div></div><div class="panel"><h3>Dokumen siap cetak</h3><p>Pilih jenis dokumen yang ingin dihasilkan dalam format rapi.</p><div class="doc-list"><button data-print="work">Laporan pekerjaan bulanan <span>⎙</span></button><button data-print="server">Pengecekan suhu server <span>⎙</span></button><button data-print="reimburse">Surat reimbursement <span>⎙</span></button></div></div></div></section>
+      <section id="settings" class="page report-page"><div class="section-title"><div><h3>Pengaturan & integrasi</h3><p>Siapkan koneksi produksi secara aman</p></div></div><div class="settings-grid"><section class="panel"><h3>Keamanan admin</h3><p>Gunakan Cloudflare Access untuk autentikasi sebelum halaman dashboard dimuat.</p><div class="setting-row"><span>Cloudflare Access</span><span class="badge warn">Perlu dikonfigurasi</span></div><button class="outline" data-copy="CF_ACCESS_TEAM_DOMAIN">Salin panduan konfigurasi</button></section><section class="panel"><h3>GitHub</h3><p>Hubungkan repositori untuk deployment otomatis dari branch <code>main</code>.</p><div class="setting-row"><span>Status koneksi</span><span class="badge warn">Belum terhubung</span></div><button class="outline" data-copy="github">Siapkan GitHub Actions</button></section><section class="panel"><h3>CasaOS</h3><p>Simpan URL dan API token melalui environment variable, bukan di browser.</p><div class="setting-row"><span>Endpoint</span><span class="badge neutral">Belum diisi</span></div><button class="outline" data-copy="CASAOS_API_URL">Lihat variable yang diperlukan</button></section></div></section>
+    </main>
+  </div>
+  <div id="modal" class="modal hidden"><div class="modal-card"><button class="close">×</button><p class="eyebrow">ENTRI BARU</p><h3 id="modalTitle">Buat laporan</h3><div id="formFields"></div><button class="primary wide" id="saveEntry">Simpan laporan</button></div></div>
+  <div id="toast" class="toast hidden"></div><script src="app.js"></script>
+</body></html>
