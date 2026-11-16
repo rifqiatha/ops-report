@@ -1,0 +1,20 @@
+/* Compact monthly temperature sheet: readable at 12px on screen, A4-safe when printed. */
+#monthlyTemperature.monthly-sheet{width:min(100%,1000px);max-width:1000px;margin:0 auto;padding:24px 30px}
+#monthlyTemperature .sheet-title h2{font-size:23px;line-height:1.2}
+#monthlyTemperature .sheet-title p{font-size:16px}
+#monthlyTemperature .sheet-subtitle{font-size:12px;margin:10px 0 16px}
+#monthlyTemperature .monthly-table-wrap{padding:0 2px;overflow-x:auto}
+#monthlyTemperature .monthly-table{width:100%;min-width:0!important;table-layout:fixed;font-size:12px;line-height:1.2}
+#monthlyTemperature .monthly-table th,#monthlyTemperature .monthly-table td{padding:4px 3px;vertical-align:middle;overflow-wrap:anywhere}
+#monthlyTemperature .monthly-table th{font-size:11px;line-height:1.15}
+#monthlyTemperature .monthly-table td{height:31px}
+#monthlyTemperature .monthly-table tr>td:nth-child(1){width:5%}
+#monthlyTemperature .monthly-table tr>td:nth-child(2){width:11%}
+#monthlyTemperature .monthly-table tr>td:nth-child(3){width:23%}
+#monthlyTemperature .monthly-table tr>td:nth-child(4){width:8%}
+#monthlyTemperature .monthly-table tr>td:nth-child(5){width:17%}
+#monthlyTemperature .monthly-table tr>td:nth-child(6){width:12%}
+#monthlyTemperature .monthly-table tr>td:nth-child(7),#monthlyTemperature .monthly-table tr>td:nth-child(8){width:8%}
+#monthlyTemperature .monthly-table tr>td:nth-child(9){width:8%}
+#monthlyTemperature .paraf-img{max-width:52px;max-height:24px}
+@media print{#monthlyTemperature.monthly-sheet{width:186mm!important;max-width:186mm!important;margin:0 auto!important;padding:0!important;border:0!important}#monthlyTemperature .monthly-table{font-size:7.5pt!important;line-height:1.05!important}#monthlyTemperature .monthly-table th,#monthlyTemperature .monthly-table td{padding:1.2mm .7mm!important}#monthlyTemperature .monthly-table td{height:5.5mm!important}#monthlyTemperature .paraf-img{max-width:15mm!important;max-height:6mm!important}}
